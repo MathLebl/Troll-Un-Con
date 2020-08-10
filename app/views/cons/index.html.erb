@@ -1,0 +1,9 @@
+<h1>Index Provisoire</h1>
+<ul>
+  <% @cons.each do |con|%>
+  <li><%= con.id %> \ <%= link_to con.name, con_path(con) %> -- <%= con.email %> -- <%= con.phone %></li>
+  <br>
+  <%= link_to 'Delete Con', con_path(con), method: :delete, data: { confirm: "Are you sure?" }  %>
+  <% end %>
+</ul>
+<%= link_to "retour", root_path %>

@@ -1,0 +1,12 @@
+<h1>Voilà ton con</h1>
+<h3><%= @con.id %> \ <%= @con.name %></h3>
+<p><%= @con.email %></p>
+<br>
+<p><%= @con.phone %></p>
+<br>
+<%= link_to "Troll", troll_con_path %>
+<br>
+<br>
+<%= link_to 'Supprime ton Con', con_path(@con), method: :delete, data: { confirm: "Are you sure?" }  %>
+<br>
+<%= link_to "retour", root_path %>
