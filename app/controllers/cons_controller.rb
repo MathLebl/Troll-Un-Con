@@ -1,4 +1,3 @@
-require 'mechanize'
 class ConsController < ApplicationController
 before_action :set_con, only: %i[destroy show troll ]
 

@@ -5,7 +5,9 @@
   <%= f.input :name, label:'nom du con', label_html: { class: 'font-weight-bold' }, input_html: { class: "rounded-pill", placeholder:'Jean Michel Con'} %>
   <%= f.input :email, label:'email du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'jm-Con@moncon.com'} %>
   <%= f.input :phone, label:'telephone du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'0606060606'} %>
-  <%= f.input :category %>
+  <%= f.input :category,
+              collection: [['Con de Gauche', :de_gauche], ['Con de Droite', :de_droite], ['Full Frontal', :full_frontal]],
+              as: :radio_buttons %>
   <%= f.button :submit, 'Créer le Con', class:'btn btn-outline-danger rounded-pill' %>
 <% end %>
 </div>
