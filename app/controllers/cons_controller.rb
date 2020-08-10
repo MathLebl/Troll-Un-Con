@@ -31,7 +31,7 @@ before_action :set_con, only: %i[destroy show troll ]
   private
 
   def con_params
-    params.require(:con).permit(:email, :phone, :name)
+    params.require(:con).permit(:email, :phone, :name, :category)
   end
 
   def set_con
