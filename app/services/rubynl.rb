@@ -1,12 +1,12 @@
 require 'mechanize'
-class Brief < ApplicationService
+class Rubynl < ApplicationService
   def initialize(con)
     @con = con
   end
 
   def call
     agent = Mechanize.new
-    page = agent.get('https://www.brief.me/')
+    page = agent.get('https://rubyweekly.com/')
     brief_form = page.form.field_with(:name => 'email')
     brief_form.value = "#{@con.email}"
     page.form.submit
