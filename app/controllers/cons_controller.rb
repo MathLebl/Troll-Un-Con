@@ -14,11 +14,14 @@ before_action :set_con, only: %i[destroy show troll ]
       Brief.call(@con)
       Atlantico.call(@con)
     when "de_droite"
+      Mediapart.call(@con)
       Rubynl.call(@con)
     else
-      Brief.call(@con)
-      Rubynl.call(@con)
+      # Brief.call(@con)
+      # Rubynl.call(@con)
       Atlantico.call(@con)
+      Mediapart.call(@con)
+
     end
   end
 
