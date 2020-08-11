@@ -13,6 +13,7 @@ before_action :set_con, only: %i[destroy show troll ]
     when "de_gauche"
       Brief.call(@con)
       Atlantico.call(@con)
+      Lefigaro.call(@con)
     when "de_droite"
       Mediapart.call(@con)
       Lemedia.new(@con)
@@ -23,6 +24,7 @@ before_action :set_con, only: %i[destroy show troll ]
       Atlantico.call(@con)
       Mediapart.call(@con)
       Lemedia.new(@con)
+      Lefigaro.call(@con)
     end
   end
 
