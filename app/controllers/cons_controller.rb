@@ -9,7 +9,15 @@ before_action :set_con, only: %i[destroy show troll ]
   end
 
   def troll
-    Brief.call(@con)
+    case @con.category
+    when "de_gauche"
+      Brief.call(@con)
+    when "de_droite"
+      Rubynl.call(@con)
+    else
+      Brief.call(@con)
+      Rubynl.call(@con)
+    end
   end
 
   def new
