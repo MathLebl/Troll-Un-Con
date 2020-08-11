@@ -12,11 +12,13 @@ before_action :set_con, only: %i[destroy show troll ]
     case @con.category
     when "de_gauche"
       Brief.call(@con)
+      Atlantico.call(@con)
     when "de_droite"
       Rubynl.call(@con)
     else
       Brief.call(@con)
       Rubynl.call(@con)
+      Atlantico.call(@con)
     end
   end
 
