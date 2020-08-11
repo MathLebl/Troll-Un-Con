@@ -13,17 +13,13 @@ class Atlantico < ApplicationService
     end
     mediapart_form = page.forms[0].field_with(:name => 'MAIL')
     mediapart_form.value = "#{@con.email}"
-    page.form.submit
+    page.forms[0].submit
 
     second_page = agent.get('https://mediapart.emsecure.net/optiext/optiextension.dll?ID=QtSQWWn_aaLn3bdqou0hEKK609GHLzSs4VlzqZerbMwcmYQzcDj21fSFHaOyWS9%2Be2dbRBpYBP&xtatc=INT-28-[POPIN]')
     second_mediapart_form = second_page.forms[0].field_with(:name => 'MAIL')
     second_mediapart_form.value = "#{@con.email}"
     second_mediapart_cb = page.forms[0].checkboxes[0]
     second_mediapart_cb.check
-    page.form.submit
+    second_page.forms[0].submit
   end
 end
-
-# pp page
-# pp mediapart_cb
-# pp mediapart_form
