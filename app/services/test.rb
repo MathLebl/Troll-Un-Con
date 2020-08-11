@@ -1,36 +1,54 @@
 require 'mechanize'
 
 agent = Mechanize.new
-page = agent.get('https://connect.lefigaro.fr/register')
+page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')
 # Form fields
-lefigaro_form_first_name = page.forms[0].field_with(:name => 'registration[firstname]')
-lefigaro_form_first_name.value = "John"
-lefigaro_form_last_name = page.forms[0].field_with(:name => 'registration[lastname]')
-lefigaro_form_last_name.value = "Doe"
-lefigaro_form_email = page.forms[0].field_with(:name => 'registration[email]')
-lefigaro_form_email.value = "john-doe@gmail.com"
-lefigaro_form_password = page.forms[0].field_with(:name => 'registration[password]')
-lefigaro_form_password.value = "z/fqjeNNR4*V8cC"
-# Checkboxes
-lefigaro_cb = page.forms[0].checkboxes
-lefigaro_cb.each do |checkbox|
-  checkbox.check
-end
+page.forms[0].field_with(name: 'signup[first_name]').value = "John"
+page.forms[0].field_with(name: 'signup[last_name]').value = "Doe"
+page.forms[0].field_with(name: 'signup[email]').value = "Johndoe@gmail.com"
+page.forms[0].field_with(name: 'signup[mobile_number]').value = "0612345789"
+page.forms[0].field_with(name: 'signup[submitted_address]').value = "12 rue Victor Hugo 69001 Lyon"
 # Radio buttons
-page.forms[0].radiobuttons_with(:name => 'registration[civility]')[1].check
-# Submit buttons
+page.forms[0].radiobuttons_with(name: 'signup[labeled_tags][]')[0].check
+page.forms[0].radiobuttons_with(name: 'consents[3]')[1].check
+# Checkbox
 page.forms[0].submit
+
+
+
+
+# pp page
+ps_form = page.forms[0]
+pp ps_form
+
+# Form fields
+# lefigaro_form_first_name = page.forms[0].field_with(:name => 'registration[firstname]')
+# lefigaro_form_first_name.value = "John"
+# lefigaro_form_last_name = page.forms[0].field_with(:name => 'registration[lastname]')
+# lefigaro_form_last_name.value = "Doe"
+# lefigaro_form_email = page.forms[0].field_with(:name => 'registration[email]')
+# lefigaro_form_email.value = "john-doe@gmail.com"
+# lefigaro_form_password = page.forms[0].field_with(:name => 'registration[password]')
+# lefigaro_form_password.value = "z/fqjeNNR4*V8cC"
+# Checkboxes
+# lefigaro_cb = page.forms[0].checkboxes
+# lefigaro_cb.each do |checkbox|
+  # checkbox.check
+# end
+# Radio buttons
+# page.forms[0].radiobuttons_with(:name => 'registration[civility]')[1].check
+# Submit buttons
+# page.forms[0].submit
 
 
 # lemedia_form.value = "michel@gmail.com"
 
 # lemedia_cb = page.forms[0].checkboxes
 # lemedia_cb.check
-lefigaro_form = page.forms[0]
+# lefigaro_form = page.forms[0]
 
 
-# pp page
-pp lefigaro_form
+# pp lefigaro_form
 
 
 
@@ -39,7 +57,7 @@ pp lefigaro_form
 
 # mediapart_cb = page.forms[0].checkboxes
 # mediapart_cb.map do |checkbox|
-#   checkbox.check
+  # checkbox.check
 # end
 # mediapart_form = page.forms[0].field_with(:name => 'MAIL')
 # mediapart_form.value = "michel@gmail.com"
@@ -56,8 +74,8 @@ pp lefigaro_form
 # atlantico_form = third_page.forms[1]
 
 
-#  form = page.forms[0]
-# # pp third_page
-# # pp atlantico_form
+ # form = page.forms[0]
+# pp third_page
+# pp atlantico_form
 # pp form
-# # pp second_mediapart_cb
+# pp second_mediapart_cb
