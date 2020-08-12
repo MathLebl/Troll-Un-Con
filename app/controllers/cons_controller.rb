@@ -48,7 +48,7 @@ class ConsController < ApplicationController
   private
 
   def con_params
-    params.require(:con).permit(:email, :phone, :name, :category)
+    params.require(:con).permit(:email, :phone, :name, :category, :first_name, :postal)
   end
 
   def set_con

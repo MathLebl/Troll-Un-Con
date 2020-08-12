@@ -1,10 +1,13 @@
 <h1>Troll un Con</h1>
 <div class="container w-1/3">
   <h3>Créer un Con</h3>
+  <p>Les champs sont remplis par défaut, remplacez par les infos propres à votre con</p>
   <%= simple_form_for @con do |f| %>
-  <%= f.input :name, label:'nom du con', label_html: { class: 'font-weight-bold' }, input_html: { class: "rounded-pill", placeholder:'Jean Michel Con'} %>
-  <%= f.input :email, label:'email du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'jm-Con@moncon.com'} %>
-  <%= f.input :phone, label:'telephone du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'0606060606'} %>
+  <%= f.input :name, label:'nom de famille du con', label_html: { class: 'font-weight-bold' }, input_html: { class: "rounded-pill", placeholder:'Martin'} %>
+  <%= f.input :first_name, label:'prénom du con', label_html: { class: 'font-weight-bold' }, input_html: { class: "rounded-pill", placeholder:'Jean-François'} %>
+  <%= f.input :email, label:'email du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'mailperso@mail.com'} %>
+  <%= f.input :phone, label:'telephone du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'0612345789'} %>
+  <%= f.input :postal, label:'adresse du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill"} %>
   <%= f.input :category,
               collection: [['Con de Gauche', :de_gauche], ['Con de Droite', :de_droite], ['Full Frontal', :full_frontal]],
               as: :radio_buttons %>
