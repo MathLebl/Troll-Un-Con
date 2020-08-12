@@ -6,25 +6,20 @@ class Atlantico < ApplicationService
 
   def call
     agent = Mechanize.new
+    # First Page
     page = agent.get('https://info.mediapart.fr/optiext/optiextension.dll?ID=Ji6JBWdfKWQY92jHH5SwqYctTQS4hqE4m5qbo4RRNS1jtE6RBmNuN7nmx5CNECt0mmvi0CveRf')
     # Form field
-    mediapart_form = page.forms[0].field_with(:name => 'MAIL')
-    mediapart_form.value = "#{@con.email}"
+    page.forms[0].field_with(name: 'MAIL').value = "#{@con.email}"
     # Checkboxes
-    mediapart_cb = page.forms[0].checkboxes
-    mediapart_cb.map do |checkbox|
-      checkbox.check
-    end
+    page.forms[0].checkboxes.each(&:check)
     # Submit button
     page.forms[0].submit
-
+    # Second Page
     second_page = agent.get('https://mediapart.emsecure.net/optiext/optiextension.dll?ID=QtSQWWn_aaLn3bdqou0hEKK609GHLzSs4VlzqZerbMwcmYQzcDj21fSFHaOyWS9%2Be2dbRBpYBP&xtatc=INT-28-[POPIN]')
     # Form field
-    second_mediapart_form = second_page.forms[0].field_with(:name => 'MAIL')
-    second_mediapart_form.value = "#{@con.email}"
+    second_page.forms[0].field_with(name: 'MAIL').value = "#{@con.email}"
     # Checkboxe
-    second_mediapart_cb = page.forms[0].checkboxes[0]
-    second_mediapart_cb.check
+    page.forms[0].checkboxes[0].check
     # Submit button
     second_page.forms[0].submit
   end

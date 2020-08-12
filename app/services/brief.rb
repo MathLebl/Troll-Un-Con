@@ -8,8 +8,7 @@ class Brief < ApplicationService
     agent = Mechanize.new
     page = agent.get('https://www.brief.me/')
     # Form field
-    brief_form = page.form.field_with(:name => 'email')
-    brief_form.value = "#{@con.email}"
+    page.form.field_with(name: 'email').value = "#{@con.email}"
     # Submit button
     page.form.submit
   end

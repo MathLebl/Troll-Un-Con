@@ -1,25 +1,41 @@
 require 'mechanize'
 
+
+
+
+
 agent = Mechanize.new
-page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')
-# Form fields
-page.forms[0].field_with(name: 'signup[first_name]').value = "John"
-page.forms[0].field_with(name: 'signup[last_name]').value = "Doe"
-page.forms[0].field_with(name: 'signup[email]').value = "Johndoe@gmail.com"
-page.forms[0].field_with(name: 'signup[mobile_number]').value = "0612345789"
-page.forms[0].field_with(name: 'signup[submitted_address]').value = "12 rue Victor Hugo 69001 Lyon"
-# Radio buttons
-page.forms[0].radiobuttons_with(name: 'signup[labeled_tags][]')[0].check
-page.forms[0].radiobuttons_with(name: 'consents[3]')[1].check
-# Checkbox
-page.forms[0].submit
+    # First Page
+    page = agent.get('https://info.mediapart.fr/optiext/optiextension.dll?ID=Ji6JBWdfKWQY92jHH5SwqYctTQS4hqE4m5qbo4RRNS1jtE6RBmNuN7nmx5CNECt0mmvi0CveRf')
+    # Checkboxes
+    page.forms[0].checkboxes.each(&:check)
+
+ps_form = page.forms[0]
+pp ps_form
+
+
+
+
+# agent = Mechanize.new
+# page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')
+# # Form fields
+# page.forms[0].field_with(name: 'signup[first_name]').value = "John"
+# page.forms[0].field_with(name: 'signup[last_name]').value = "Doe"
+# page.forms[0].field_with(name: 'signup[email]').value = "Johndoe@gmail.com"
+# page.forms[0].field_with(name: 'signup[mobile_number]').value = "0612345789"
+# page.forms[0].field_with(name: 'signup[submitted_address]').value = "12 rue Victor Hugo 69001 Lyon"
+# # Radio buttons
+# page.forms[0].radiobuttons_with(name: 'signup[labeled_tags][]')[0].check
+# page.forms[0].radiobuttons_with(name: 'consents[3]')[1].check
+# # Checkbox
+# page.forms[0].submit
 
 
 
 
 # pp page
-ps_form = page.forms[0]
-pp ps_form
+# ps_form = page.forms[0]
+# pp ps_form
 
 # Form fields
 # lefigaro_form_first_name = page.forms[0].field_with(:name => 'registration[firstname]')
