@@ -1,5 +1,5 @@
 class ConsController < ApplicationController
-before_action :set_con, only: %i[destroy show troll ]
+  before_action :set_con, only: %i[destroy show troll]
 
   def index
     @cons = Con.all
@@ -44,7 +44,6 @@ before_action :set_con, only: %i[destroy show troll ]
     @con.destroy
     redirect_to root_path
   end
-
 
   private
 

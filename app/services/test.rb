@@ -1,20 +1,12 @@
 require 'mechanize'
 
-
-
-
-
 agent = Mechanize.new
-    # First Page
-    page = agent.get('https://info.mediapart.fr/optiext/optiextension.dll?ID=Ji6JBWdfKWQY92jHH5SwqYctTQS4hqE4m5qbo4RRNS1jtE6RBmNuN7nmx5CNECt0mmvi0CveRf')
-    # Checkboxes
-    page.forms[0].checkboxes.each(&:check)
+page = agent.get('https://info.mediapart.fr/optiext/optiextension.dll?ID=Ji6JBWdfKWQY92jHH5SwqYctTQS4hqE4m5qbo4RRNS1jtE6RBmNuN7nmx5CNECt0mmvi0CveRf')
+# Checkboxes
+page.forms[0].checkboxes.each(&:check)
 
-ps_form = page.forms[0]
-pp ps_form
-
-
-
+# ps_form = page.forms[0]
+# pp ps_form
 
 # agent = Mechanize.new
 # page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')
@@ -30,9 +22,6 @@ pp ps_form
 # # Checkbox
 # page.forms[0].submit
 
-
-
-
 # pp page
 # ps_form = page.forms[0]
 # pp ps_form
@@ -47,15 +36,10 @@ pp ps_form
 # lefigaro_form_password = page.forms[0].field_with(:name => 'registration[password]')
 # lefigaro_form_password.value = "z/fqjeNNR4*V8cC"
 # Checkboxes
-# lefigaro_cb = page.forms[0].checkboxes
-# lefigaro_cb.each do |checkbox|
-  # checkbox.check
-# end
 # Radio buttons
 # page.forms[0].radiobuttons_with(:name => 'registration[civility]')[1].check
 # Submit buttons
 # page.forms[0].submit
-
 
 # lemedia_form.value = "michel@gmail.com"
 
@@ -63,18 +47,11 @@ pp ps_form
 # lemedia_cb.check
 # lefigaro_form = page.forms[0]
 
-
 # pp lefigaro_form
-
-
 
 # password = "z/fqjeNNR4*V8cC"
 
-
 # mediapart_cb = page.forms[0].checkboxes
-# mediapart_cb.map do |checkbox|
-  # checkbox.check
-# end
 # mediapart_form = page.forms[0].field_with(:name => 'MAIL')
 # mediapart_form.value = "michel@gmail.com"
 # page.forms[0].submit
@@ -87,10 +64,6 @@ pp ps_form
 # second_page.forms[0].submit
 
 # third_page = agent.get('https://www.atlantico.fr/category/mots-cles/newsletter')
-# atlantico_form = third_page.forms[1]
-
-
- # form = page.forms[0]
 # pp third_page
 # pp atlantico_form
 # pp form
