@@ -1,12 +1,18 @@
 require 'mechanize'
 
 agent = Mechanize.new
-page = agent.get('https://info.mediapart.fr/optiext/optiextension.dll?ID=Ji6JBWdfKWQY92jHH5SwqYctTQS4hqE4m5qbo4RRNS1jtE6RBmNuN7nmx5CNECt0mmvi0CveRf')
-# Checkboxes
-page.forms[0].checkboxes.each(&:check)
+    page = agent.get('https://connect.lefigaro.fr/register')
+    # Form fields
+    page.forms[0].field_with(name: 'registration[firstname]').value = @con.first_name.to_s
+    page.forms[0].field_with(name: 'registration[lastname]').value = "#{@con.name}"
+    page.forms[0].field_with(name: 'registration[email]').value = "#{@con.email}"
 
-# ps_form = page.forms[0]
-# pp ps_form
+
+# Checkboxes
+# page.forms[0].checkboxes.each(&:check)
+
+ps_form = page.forms[0]
+pp ps_form
 
 # agent = Mechanize.new
 # page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')

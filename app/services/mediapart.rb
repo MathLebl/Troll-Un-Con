@@ -1,5 +1,5 @@
 require 'mechanize'
-class Atlantico < ApplicationService
+class Mediapart < ApplicationService
   def initialize(con)
     @con = con
   end

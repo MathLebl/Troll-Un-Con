@@ -15,7 +15,7 @@ class ConsController < ApplicationController
       Atlantico.call(@con)
       Lefigaro.call(@con)
     when "de_droite"
-      Partisocialiste.new(@con)
+      PartiSocialiste.new(@con)
       Mediapart.call(@con)
       Lemedia.new(@con)
       Rubynl.call(@con)
@@ -26,7 +26,7 @@ class ConsController < ApplicationController
       Mediapart.call(@con)
       Lemedia.new(@con)
       Lefigaro.call(@con)
-      Partisocialiste.new(@con)
+      PartiSocialiste.new(@con)
     end
   end
 

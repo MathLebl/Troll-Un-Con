@@ -10,8 +10,7 @@ class Lemedia < ApplicationService
     # Form field
     page.forms[0].field_with(name: 's').value = "#{@con.email}"
     # Checkboxe
-    lemedia_cb = page.forms[0].checkboxes
-    lemedia_cb.check
+    page.forms[0].checkboxes.check
     # Submit button
     page.forms[0].submit
   end

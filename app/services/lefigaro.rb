@@ -8,8 +8,8 @@ class Lefigaro < ApplicationService
     agent = Mechanize.new
     page = agent.get('https://connect.lefigaro.fr/register')
     # Form fields
-    page.forms[0].field_with(name: 'registration[firstname]').value = "John"
-    page.forms[0].field_with(name: 'registration[lastname]').value = "Doe"
+    page.forms[0].field_with(name: 'registration[firstname]').value = "#{@con.first_name}"
+    page.forms[0].field_with(name: 'registration[lastname]').value = "#{@con.name}"
     page.forms[0].field_with(name: 'registration[email]').value = "#{@con.email}"
     page.forms[0].field_with(name: 'registration[password]').value = "z/fqjeNNR4*V8cC"
     # Checkboxes
