@@ -5,6 +5,7 @@ class PartiSocialiste < ApplicationService
   end
 
   def call
+     puts "on est là"
     agent = Mechanize.new
     page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')
     # Form fields

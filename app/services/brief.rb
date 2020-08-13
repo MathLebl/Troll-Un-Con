@@ -9,6 +9,7 @@ class Brief < ApplicationService
     page = agent.get('https://www.brief.me/')
     # Form field
     page.form.field_with(name: 'email').value = "#{@con.email}"
+    pp page.form
     # Submit button
     page.form.submit
   end

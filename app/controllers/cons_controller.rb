@@ -11,22 +11,22 @@ class ConsController < ApplicationController
   def troll
     case @con.category
     when "de_gauche"
-      Brief.call(@con)
-      Atlantico.call(@con)
-      Lefigaro.call(@con)
-    when "de_droite"
-      PartiSocialiste.new(@con)
-      Mediapart.call(@con)
-      Lemedia.new(@con)
       Rubynl.call(@con)
-    else
-      # Brief.call(@con)
-      # Rubynl.call(@con)
-      Atlantico.call(@con)
-      Mediapart.call(@con)
-      Lemedia.new(@con)
       Lefigaro.call(@con)
-      PartiSocialiste.new(@con)
+      # Brief.call(@con)
+      # Atlantico.call(@con)
+    when "de_droite"
+      PartiSocialiste.call(@con)
+      Mediapart.call(@con)
+      # Lemedia.call(@con)
+    when "full_frontal"
+      Mediapart.call(@con)
+      Rubynl.call(@con)
+      Lefigaro.call(@con)
+      PartiSocialiste.call(@con)
+      # Brief.call(@con)
+      # Atlantico.call(@con)
+      # Lemedia.call(@con)
     end
   end
 

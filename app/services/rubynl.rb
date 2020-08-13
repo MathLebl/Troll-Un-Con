@@ -5,6 +5,7 @@ class Rubynl < ApplicationService
   end
 
   def call
+     puts "on est là"
     agent = Mechanize.new
     page = agent.get('https://rubyweekly.com/')
     # Form field

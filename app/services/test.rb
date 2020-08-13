@@ -1,19 +1,17 @@
 require 'mechanize'
 
 agent = Mechanize.new
-    page = agent.get('https://connect.lefigaro.fr/register')
-    # Form fields
-    page.forms[0].field_with(name: 'registration[firstname]').value = @con.first_name.to_s
-    page.forms[0].field_with(name: 'registration[lastname]').value = "#{@con.name}"
-    page.forms[0].field_with(name: 'registration[email]').value = "#{@con.email}"
+  page = agent.get('https://lemediapresse.fr/newsletter/')
 
+    page.forms[0].field_with(name: 's').value = "yoyo@mail.com"
+    # Checkboxe
+    cb = page.forms[0].checkboxes
 
-# Checkboxes
-# page.forms[0].checkboxes.each(&:check)
+    form = page.forms[0].checkboxes
 
-ps_form = page.forms[0]
-pp ps_form
-
+    pp form
+    # pp cb
+    # pp page
 # agent = Mechanize.new
 # page = agent.get('https://www.parti-socialiste.fr/rejoindre_la_newsletter')
 # # Form fields
@@ -31,6 +29,9 @@ pp ps_form
 # pp page
 # ps_form = page.forms[0]
 # pp ps_form
+
+# Checkboxes
+# page.forms[0].checkboxes.each(&:check)
 
 # Form fields
 # lefigaro_form_first_name = page.forms[0].field_with(:name => 'registration[firstname]')

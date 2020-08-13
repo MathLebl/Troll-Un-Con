@@ -5,6 +5,7 @@ class Lefigaro < ApplicationService
   end
 
   def call
+     puts "on est là"
     agent = Mechanize.new
     page = agent.get('https://connect.lefigaro.fr/register')
     # Form fields

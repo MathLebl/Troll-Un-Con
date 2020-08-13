@@ -5,6 +5,7 @@ class Mediapart < ApplicationService
   end
 
   def call
+     puts "on est là"
     agent = Mechanize.new
     # First Page
     page = agent.get('https://info.mediapart.fr/optiext/optiextension.dll?ID=Ji6JBWdfKWQY92jHH5SwqYctTQS4hqE4m5qbo4RRNS1jtE6RBmNuN7nmx5CNECt0mmvi0CveRf')
@@ -19,7 +20,7 @@ class Mediapart < ApplicationService
     # Form field
     second_page.forms[0].field_with(name: 'MAIL').value = "#{@con.email}"
     # Checkboxe
-    page.forms[0].checkboxes[0].check
+    second_page.forms[0].checkboxes[0].check
     # Submit button
     second_page.forms[0].submit
   end
