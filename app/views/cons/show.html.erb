@@ -1,13 +1,17 @@
-<h1>Voilà ton con</h1>
-<h3><%= @con.id %> \ <%= @con.name %></h3>
-<p><%= @con.email %></p>
-<br>
-<p><%= @con.phone %></p>
-<br>
-<p><%= @con.category %></p>
-<%= link_to "Troll", troll_con_path %>
-<br>
-<br>
-<%= link_to 'Supprime ton Con', con_path(@con), method: :delete, data: { confirm: "Are you sure?" }  %>
-<br>
-<%= link_to "retour", root_path %>
+<h1 class="text-center mt-5"><%= @con.first_name %> <%= @con.name %></h1>
+<div class="container w-50 mx-auto">
+<p class="mx-1 my-5 text-center "><%= @con.email %>--<%= @con.phone %></p>
+<% case @con.category %>
+<% when "de_gauche"  %>
+<p class="mx-1 my-5 text-center "> Il s'agit d'un Con de Gauche</p>
+<% when "de_droite"  %>
+<p class="mx-1 my-5 text-center "> Il s'agit d'un Con de Droite</p>
+<% when "full_frontal"  %>
+<p class="mx-1 my-5 text-center "> On a choisit la solution OFFENSIVE !</p>
+<% end  %>
+<div class="d-flex justify-content-between">
+<p class="mx-1 my-5"><%= link_to 'Supprime ton Con', con_path(@con), class:' rounded-pill font-weight-bold text-white bg-dark p-2', method: :delete, data: { confirm: "Are you sure?" }  %></p>
+<p class="mx-1 my-5"><%= link_to "Troll", troll_con_path, class:' rounded-pill font-weight-bold text-white text-uppercase bg-danger p-2 font-weight-bold' %></p>
+<p class="mx-1 my-5"><%= link_to "retour", root_path, class:' rounded-pill font-weight-bold text-white bg-dark p-2' %></p>
+</div>
+</div>

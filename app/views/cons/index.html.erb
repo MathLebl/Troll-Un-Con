@@ -1,8 +1,24 @@
 <h1>Index Provisoire</h1>
+<div class="d-flex w-50 mx-auto border border-dark justify-content-center">
 <ul>
   <% @cons.each do |con|%>
-  <li><%= con.id %> \ <%= link_to con.name, con_path(con) %> <%= con.category %> -- <%= con.email %> -- <%= con.phone %></li>
-  <%= link_to 'Delete Con', con_path(con), method: :delete, data: { confirm: "Are you sure?" }  %>
+  <%= link_to con_path(con), class:"font-weight-bold text-dark" do %>
+  <div class="card w-100 border border-dark m-2 p-4">
+  <li>
+    <h3><%= con.name %> <%= con.first_name %></h3>
+    <% case con.category %>
+<% when "de_gauche"  %>
+<p class="mx-1 my-5 text-center "> Il s'agit d'un Con de Gauche</p>
+<% when "de_droite"  %>
+<p class="mx-1 my-5 text-center "> Il s'agit d'un Con de Droite</p>
+<% when "full_frontal"  %>
+<p class="mx-1 my-5 text-center "> On a choisit la solution OFFENSIVE !</p>
+<% end  %>
+    </li>
+    <%= link_to 'Supprime ce Con', con_path(con), method: :delete, class:'', data: { confirm: "Are you sure?" }  %>
+  </div>
+  <% end %>
   <% end %>
 </ul>
+</div>
 <%= link_to "retour", root_path %>

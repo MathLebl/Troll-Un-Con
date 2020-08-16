@@ -1,19 +1,32 @@
-<h1>Troll un Con</h1>
-<div class="container w-1/3">
+<h1 class="w-50 mx-auto text-center">Troll un Con</h1>
+<div class="d-flex justify-content-between align-items-center w-50 mx-auto">
+<%= link_to "Tous les cons", cons_path, class:'d-inline close' %>
+<%= link_to "Log out", destroy_user_session_path, method: :delete, type:'button', class:'d-inline close' %>
+</div>
+<div class="w-50 mx-auto shadow-lg p-4 my-5 rounded-bottom rounded-right">
   <h3>Créer un Con</h3>
   <p>Les champs sont remplis par défaut, remplacez par les infos propres à votre con</p>
-  <%= simple_form_for @con do |f| %>
-  <%= f.input :name, label:'nom de famille du con', label_html: { class: 'font-weight-bold' }, input_html: { class: "rounded-pill", placeholder:'Martin'} %>
-  <%= f.input :first_name, label:'prénom du con', label_html: { class: 'font-weight-bold' }, input_html: { class: "rounded-pill", placeholder:'Jean-François'} %>
-  <%= f.input :email, label:'email du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'mailperso@mail.com'} %>
-  <%= f.input :phone, label:'telephone du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill", placeholder:'0612345789'} %>
-  <%= f.input :postal, label:'adresse du con', label_html: { class: 'font-weight-bold' }, input_html: { class: " rounded-pill"} %>
+  <%= simple_form_for @con, defaults: { input_html: { class: 'rounded-pill mx-2' }, label_html: { class: 'font-weight-bold pl-3 mx-2' } } do |f| %>
+  <div class="form-inputs d-flex justify-content-between">
+  <%= f.input :name, label:'nom', class:'', input_html: { placeholder:'Martin'} %>
+  <%= f.input :first_name, label:'prénom', class:'', input_html: {placeholder:'Jean-François'} %>
+</div>
+  <%= f.input :email, label:'email', class:'', input_html: { placeholder:'mailperso@mail.com'} %>
+  <div class="form-inputs d-flex justify-content-between">
+  <%= f.input :phone, label:'telephone', class:'', input_html: { placeholder:'0612345789'} %>
+  <%= f.input :postal, label:'adresse', class:'' %>
+</div>
+
   <%= f.input :category,
+              label: "De quelle sorte de Con s'agit-il?",
               collection: [['Con de Gauche', :de_gauche], ['Con de Droite', :de_droite], ['Full Frontal', :full_frontal]],
-              as: :radio_buttons %>
+              as: :radio_buttons,
+              input_html: { class: 'rounded-pill mx-0' },
+              label_html: { class: 'font-weight-bold pl-0 mx-0' } %>
+
   <%= f.button :submit, 'Créer le Con', class:'btn btn-outline-danger rounded-pill' %>
 <% end %>
 </div>
 
-<%= link_to "Tous les cons", cons_path %> <br>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+
+
